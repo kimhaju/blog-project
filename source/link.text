@@ -5,6 +5,10 @@ get /blog/login
 post /blog/login ->둘다 필요함 하나는 링크로 가는용, 하나는 폼데이터로 전달
 get /blog/logout ->회원로그아웃
 get /blog/join ->회원가입
+get /blog/id/remove
 
-get /add/write
-post /add/write
+get blog/add/write
+post blog/add/write
+get blog/list
+get blog/edit/write
+post blog/edit/write
