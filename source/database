@@ -1,0 +1,48 @@
+테이블 정의서
+
+use database:blog
+
+테이블명
+->아니  왜 mysql은 시퀸스 기능을 지원안하냐
+회원관리
+user
+
+CREATE database blog;
+
+use blog;
+
+CREATE TABLE users (
+  user_number int(11) NOT NULL AUTO_INCREMENT,
+  username varchar(100) NOT NULL,
+  user_nickname varchar(100) NOT NULL,
+  password varchar(30) NOT NULL,
+  role varchar(10) default 'user',
+  email varchar(30),
+  PRIMARY KEY(user_number)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+글쓴사람=사용자가 일치하게 하기 위해서 외래키 사용.
+
+글관리
+posting
+
+CREATE TABLE posting (
+  post_number int(11) NOT NULL AUTO_INCREMENT,
+  title varchar(200) NOT NULL,
+  post_contents text,
+  image_file MEDIUMBLOB,
+  posting_date varchar(30),
+  postname varchar(100),
+  FOREIGN KEY (postname) REFERENCES users(username),
+  PRIMARY KEY (post_number)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+댓글관리
+
+CREATE TABLE 'reply'(
+  'reply_number' int() NOT NULL AUTO_INCREMENT,
+  'contents' text,
+  'reply_date' varchar(30),
+  FOREIGN KEY('username') references user('replyname'),
+  PRIMARY KEY (post_number)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

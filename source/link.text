@@ -12,3 +12,5 @@ post blog/add/write
 get blog/list
 get blog/edit/write
 post blog/edit/write
+
+댓글기능은....굳이 링크 필요할까? 싶어서 일단 보류 

@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+  body
+    h1 join
+    form(action='/blog/join' method='post')
+      p 아이디
+        input(type='text' name='username' placeholder='아이디를 입력해주세요.')
+      p 사용할 닉네임
+        input(type='text' name='user_nickname' placeholder='닉네임을 입력해주세요.')
+      p 비밀번호
+        input(type='password' name='password' placeholder='비번을 입력해주세요.')
+      p 이메일
+        input(type='text' name='email' placeholder='닉네임을 입력해주세요.')
+      p
+        input(type='submit')
+
+            //-if문 추가해서 널값 못들어오게 하기.
