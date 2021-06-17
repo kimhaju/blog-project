@@ -7,10 +7,10 @@ get /blog/logout ->회원로그아웃
 get /blog/join ->회원가입
 get /blog/id/remove
 
-get blog/add/write
-post blog/add/write
-get blog/list
-get blog/edit/write
-post blog/edit/write
+get blog/add.write
+post blog/add.write
+get blog/list ->변경, 블로그 홈에 글 목록이 다 보였으면 좋겟음 get/blog/home
+get blog/edit
+post blog/edit
 
-댓글기능은....굳이 링크 필요할까? 싶어서 일단 보류 
+댓글기능은....굳이 링크 필요할까? 싶어서 일단 보류

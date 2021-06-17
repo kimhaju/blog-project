@@ -12,14 +12,19 @@ CREATE database blog;
 use blog;
 
 CREATE TABLE users (
-  user_number int(11) NOT NULL AUTO_INCREMENT,
+  id int(11) NOT NULL AUTO_INCREMENT,
+  authId varchar(50) NOT NULL,
   username varchar(100) NOT NULL,
   user_nickname varchar(100) NOT NULL,
-  password varchar(30) NOT NULL,
+  password varchar(255) NOT NULL,
+  salt varchar(255),
   role varchar(10) default 'user',
-  email varchar(30),
-  PRIMARY KEY(user_number)
+  email varchar(50),
+  PRIMARY KEY(id),
+  UNIQUE (authId)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 글쓴사람=사용자가 일치하게 하기 위해서 외래키 사용.
 
@@ -33,9 +38,23 @@ CREATE TABLE posting (
   image_file MEDIUMBLOB,
   posting_date varchar(30),
   postname varchar(100),
-  FOREIGN KEY (postname) REFERENCES users(username),
+  FOREIGN KEY (postname) REFERENCES users(authId),
   PRIMARY KEY (post_number)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-->외래키를 참조할때는 반드시 unique, primary 둘중 하나는 만족해야함.
+
+확인용 예제 
+
+insert into posting(
+  title, post_contents, posting_date, postname )
+  values ('test write',
+          '이 글은 영국에서 시작되었으며, 이 글을 보는 즉시 5명에게 똑같이 행운편지를...',
+          '2021-02-05',
+          'local: jay');
+
+insert into posting(title, post_contents, posting_date, postname)
+  values('coffee', 'coffee bean', '2021-04-05', 'local: jay');
 
 댓글관리
 

@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    style.
+      h1 {
+        color: black;
+        text-decoration:underline;
+        text-align:center;
+      }
+       ul{
+        color:black;
+        text-align:right;
+      }
+       li {
+        color: black;
+        text-align:right;
+       }
+        p {
+        text-align:center;
+       }
+        h2 {
+        text-align:right;
+       }
+  body
+    h1
+      a(href='/blog/home') Blog home
+    if user
+      p= user.user_nickname+' Welcome !'
+      p
+        a(href='/blog/logout') logout &nbsp;
+        a(href='/blog/add.write') write
+      ul
+        a(href='/blog/list') -list yourpost-
+    else
+      p
+        a(href='/blog/join') join &nbsp;
+        a(href='/blog/login') login
+    block content

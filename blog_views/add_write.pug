@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    mata(charset='utf-8')
+    style.
+      table, td, th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align:left;
+      }
+      th{
+        width:700px;
+        height:50px;
+      }
+      td{
+        height:800px;
+      }
+  body
+    h1 add write
+    form(action='/blog/add.write' method='post')
+      table
+        tr
+          th 제목:
+            input(type='text' name='title' placeholder='제목')
+        tr
+          td
+            input(type='text' name='post_contents' placeholder='본문')
+        tr
+          th 첨부할 파일:
+            input(type='file' name='image_file')
+        tr
+          th
+            input(type='submit')

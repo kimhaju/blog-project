@@ -1,0 +1,8 @@
+extends ./top_layout
+block content
+  ul
+    a(href='/blog/list') -list your post-
+  ul
+    each posting in list
+      ul
+        a(href='/blog/list'+post_number)= posting.title
