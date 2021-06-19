@@ -9,13 +9,13 @@ var hasher = bkfd2Password();
 var mysql = require('mysql');
 var conn = mysql.createConnection({
   host : 'localhost',
-  user : 'root',
-  password : '123456',
-  database : 'blog'
+  user : '아이디 가림처리',
+  password : '패스워드가림처리',
+  database : '데이터 베이스가림처리 '
 });
 conn.connect();
 var app = express();
-app.use(bodyPaser.urlencoded({ extended: false})); //->이거 빼먹고 왜 안되냐 지랄하고 있었다
+app.use(bodyPaser.urlencoded({ extended: false}));
 app.locals.pretty = true;
 app.use(session({
   secret: 'keyboardcat',
@@ -24,9 +24,9 @@ app.use(session({
   store:new MySQLStore({
     host: 'localhost',
 	  port: 3306,
-	  user: 'root',
-	  password: '123456',
-	  database: 'blog'
+	  user: '아이디 가림처리',
+	  password: '비번 가림처리 ',
+	  database: '데이터 베이스 가림처리'
   })
 }));
 app.use(passport.initialize());
